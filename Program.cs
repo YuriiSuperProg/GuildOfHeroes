@@ -99,17 +99,17 @@ Car bmw = new Car("BMW", "X5", 3.0, 2021, "Чёрный");
 // Console.WriteLine($"Объём двигателя: {tesla.EngineVolume}");
 // Console.WriteLine($"Доступна: {tesla.IsAvailable}");
 
-Console.WriteLine(bmw.GetInfo());
+// Console.WriteLine(bmw.GetInfo());
 
-Console.WriteLine();
+// Console.WriteLine();
 
-Console.WriteLine($"Цвет БМВ до: {bmw.Color}");
+// Console.WriteLine($"Цвет БМВ до: {bmw.Color}");
 
-bmw.NewColor("Белый");
-Console.WriteLine($"Цвет БМВ после: {bmw.Color}");
+// bmw.NewColor("Белый");
+// Console.WriteLine($"Цвет БМВ после: {bmw.Color}");
 
-Console.WriteLine($"Пробег БМВ до: {bmw.Mileage}");
+// Console.WriteLine($"Пробег БМВ до: {bmw.Mileage}");
 
-bmw.AddMileage(50);
+// bmw.AddMileage(50);
 
-Console.WriteLine($"Пробег БМВ после: {bmw.Mileage}");
+// Console.WriteLine($"Пробег БМВ после: {bmw.Mileage}");
