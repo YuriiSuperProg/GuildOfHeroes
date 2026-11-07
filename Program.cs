@@ -1,42 +1,21 @@
-﻿Hero yaroslav = new Hero("Ярослав", 100);
-Hero anastasia = new Hero("Анастасия", 90);
-Hero artem = new Hero("Артём", 120);
-Hero alexander = new Hero("Александр", 150);
+﻿// Hero yaroslav = new Hero("Ярослав", 100);
+// Hero anastasia = new Hero("Анастасия", 90);
+// Hero artem = new Hero("Артём", 120);
+// Hero alexander = new Hero("   Александр   ", 150);
 
-Console.WriteLine(yaroslav.GetInfo());
-Console.WriteLine();
-Console.WriteLine(anastasia.GetInfo());
-Console.WriteLine();
-Console.WriteLine(artem.GetInfo());
-Console.WriteLine();
-Console.WriteLine(alexander.GetInfo());
+// alexander.TakeDamage(10);
+// alexander.Heal(10);
 
-
-
-
-Hero lowProbe = new Hero("Проверка нижней границы", -100);
-Hero highProbe = new Hero("Проверка верхней границы", 5000);
-Console.WriteLine($"Нижняя граница: {lowProbe.Health}/{lowProbe.MaxHealth}");
-Console.WriteLine($"Верхняя граница: {highProbe.Health}/{highProbe.MaxHealth}");
-Console.WriteLine($"Александр до действий: {alexander.Health}/{alexander.MaxHealth}");
-
-alexander.TakeDamage(30);
-alexander.Heal(10);
-Console.WriteLine($"Обычные действия: {alexander.Health}");
-alexander.Heal(5000);
-Console.WriteLine($"Большое лечение: {alexander.Health}");
-alexander.Heal(-20);
-Console.WriteLine($"Отказ в лечении: {alexander.Health}");
-alexander.TakeDamage(5000);
-Console.WriteLine($"Большой урон: {alexander.Health}; жив: {alexander.IsAlive()}");
-alexander.Heal(20);
-Console.WriteLine($"Восстановление: {alexander.Health}");
-Console.WriteLine($"Артём без изменений: {artem.Health}/{artem.MaxHealth}");
-
-
-
-
-
+// Console.WriteLine(">>> Участники готовы <<<");
+// Console.WriteLine();
+// Console.WriteLine(yaroslav.GetInfo());
+// Console.WriteLine();
+// Console.WriteLine(anastasia.GetInfo());
+// Console.WriteLine();
+// Console.WriteLine(artem.GetInfo());
+// Console.WriteLine();
+// Console.WriteLine(alexander.GetInfo());
+// Console.WriteLine($"Предел здоровья Александра: {alexander.MaxHealth}");
 
 
 
@@ -94,3 +73,21 @@ Console.WriteLine($"Артём без изменений: {artem.Health}/{artem.
 // bmw.AddMileage(50);
 
 // Console.WriteLine($"Пробег БМВ после: {bmw.Mileage}");
+
+
+Car gazelle = new Car("ГАЗ", "Газель", 2.8, 2019, "Белый", 1000);
+Car kamaz   = new Car("КАМАЗ", "5490", 12.0, 2021, "Синий", -500);
+
+Console.WriteLine(gazelle.GetInfo());
+Console.WriteLine();
+Console.WriteLine(kamaz.GetInfo());
+Console.WriteLine();
+
+gazelle.AddMileage(250);
+gazelle.AddMileage(-100);
+
+Console.WriteLine();
+Console.WriteLine(gazelle.GetInfo());
+Console.WriteLine($"Пробег КАМАЗа: {kamaz.Mileage}");
+
+//gazelle.Mileage = 999; 

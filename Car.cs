@@ -1,20 +1,23 @@
 class Car {
     public string Brand;
     public string Model;
-
     public double EngineVolume;
     public int Year;
-    public int Mileage;
+    public int Mileage { get; private set; }
     public string Color;
     public bool IsAvailable;
 
-    public Car(string brand, string model, double engineVolume, int year, string color) {
+    public Car(string brand, string model, double engineVolume, int year, string color, int mileage) {
         Brand = brand;
         Model = model;
         EngineVolume = engineVolume;
         Year = year;
         Color = color;
         IsAvailable = true;
+        Mileage = mileage;
+        if (Mileage < 0) {
+            Mileage = 0;
+        }
     }
 
     public void NewColor(string newColor) {
