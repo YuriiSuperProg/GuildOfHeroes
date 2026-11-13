@@ -1,23 +1,56 @@
-﻿// Hero yaroslav = new Hero("Ярослав", 100);
-// Hero anastasia = new Hero("Анастасия", 90);
-// Hero artem = new Hero("Артём", 120);
-// Hero alexander = new Hero("   Александр   ", 150);
+﻿//Probe.Run();
 
-// alexander.TakeDamage(10);
-// alexander.Heal(10);
+Hero yaroslav = new Hero("Ярослав", 100);
+Hero anastasia = new Hero("Анастасия", 90);
+Hero artem = new Hero("Артём", 120);
+Hero alexander = new Hero("   Александр   ", 150);
+Hero sergey = new Hero("Сергей", 110);
 
-// Console.WriteLine(">>> Участники готовы <<<");
-// Console.WriteLine();
-// Console.WriteLine(yaroslav.GetInfo());
-// Console.WriteLine();
-// Console.WriteLine(anastasia.GetInfo());
-// Console.WriteLine();
-// Console.WriteLine(artem.GetInfo());
-// Console.WriteLine();
-// Console.WriteLine(alexander.GetInfo());
-// Console.WriteLine($"Предел здоровья Александра: {alexander.MaxHealth}");
+alexander.TakeDamage(10);
+alexander.Heal(10);
 
+Console.WriteLine($"Предел здоровья Александра: {alexander.MaxHealth}");
 
+Guild guild = new Guild("Гильдия героев");
+
+guild.Heroes.Add(yaroslav);
+guild.Heroes.Add(anastasia);
+
+guild.Heroes.Add(artem);
+guild.Heroes.Add(alexander);
+guild.Heroes.Add(sergey);
+
+Console.WriteLine($">>> {guild.Name}: перекличка <<<");
+Console.WriteLine($"Участников: {guild.Heroes.Count}");
+
+if (guild.Heroes.Count > 0) {
+    Console.WriteLine($"Первый: {guild.Heroes[0].Name}");
+    Console.WriteLine($"Последний: {guild.Heroes[guild.Heroes.Count - 1].Name}");
+}
+Console.WriteLine();
+foreach (Hero hero in guild.Heroes) {
+    Console.WriteLine(hero.GetInfo());
+    Console.WriteLine();
+}
+
+int strongCount = 0;
+
+foreach(Hero hero in guild.Heroes) {
+    if (hero.Health >= 120) {
+        strongCount++;
+    }
+}
+Console.WriteLine($"Могут нести тяжёлые ящики (здоровье от 120): {strongCount}");
+
+if (guild.Heroes.Count > 0) {
+    Hero strongest = guild.Heroes[0];
+    foreach (Hero hero in guild.Heroes) {
+        if (hero.Health > strongest.Health) {
+            strongest = hero;
+        }
+    }
+    Console.WriteLine($"Самый здоровый: {strongest.Name} ({strongest.Health})");
+}
 
 
 
@@ -27,67 +60,44 @@
 
 /// >>>>>>>>>>>>>>>> Самостоятельная работа >>>>>>>>>>>>>>>> \\\
 
-// Car bmw = new Car("BMW", "X5", 3.0, 2021, "Чёрный");
-// Car lada = new Car("Lada", "Vesta", 1.6, 2019, "Белый");
-// Car tesla = new Car("Tesla", "Model 3", 0.0, 2023, "Красный");
+// Car bmw     = new Car("BMW", "X5", 3.0, 2021, "Чёрный", 0);
+// Car lada    = new Car("Lada", "Vesta", 1.6, 2019, "Белый", 0);
+// Car tesla   = new Car("Tesla", "Model 3", 0.0, 2023, "Красный", 0);
+// Car hellcat = new Car("Dodge", "Challenger SRT Hellcat", 6.2, 2023, "Чёрный", 0);
+// List<Car> cars = new List<Car>();
+// cars.Add(bmw);
+// cars.Add(lada);
+// cars.Add(tesla);
+// cars.Add(hellcat);
 
-// Console.WriteLine(">>> Машина 1 <<<");
-// Console.WriteLine($"Марка: {bmw.Brand}");
-// Console.WriteLine($"Модель: {bmw.Model}");
-// Console.WriteLine($"Год: {bmw.Year}");
-// Console.WriteLine($"Цвет: {bmw.Color}");
-// Console.WriteLine($"Объём двигателя: {bmw.EngineVolume}");
-// Console.WriteLine($"Доступна: {bmw.IsAvailable}");
-
-// Console.WriteLine();
-
-// Console.WriteLine(">>> Машина 2 <<<");
-// Console.WriteLine($"Марка: {lada.Brand}");
-// Console.WriteLine($"Модель: {lada.Model}");
-// Console.WriteLine($"Год: {lada.Year}");
-// Console.WriteLine($"Цвет: {lada.Color}");
-// Console.WriteLine($"Объём двигателя: {lada.EngineVolume}");
-// Console.WriteLine($"Доступна: {lada.IsAvailable}");
+// Console.WriteLine($">>> Автопарк: в списке {cars.Count} машины <<<");
+// if (cars.Count > 0) {
+//     Console.WriteLine($"Первая: {cars[0].Brand} {cars[0].Model}");
+//     Console.WriteLine($"Последняя: {cars[cars.Count - 1].Brand} {cars[ cars.Count - 1].Model}");
+// }
 
 // Console.WriteLine();
 
-// Console.WriteLine(">>> Машина 3 <<<");
-// Console.WriteLine($"Марка: {tesla.Brand}");
-// Console.WriteLine($"Модель: {tesla.Model}");
-// Console.WriteLine($"Год: {tesla.Year}");
-// Console.WriteLine($"Цвет: {tesla.Color}");
-// Console.WriteLine($"Объём двигателя: {tesla.EngineVolume}");
-// Console.WriteLine($"Доступна: {tesla.IsAvailable}");
+// foreach (Car car in cars) {
+//     Console.WriteLine(car.GetInfo());
+//     Console.WriteLine();
+// }
 
-// Console.WriteLine(bmw.GetInfo());
-
+// Car kamaz = new Car("КАМАЗ", "5490", 12.0, 2021, "Синий", 0);
+// cars.Add(kamaz);
+// Console.WriteLine($"После добавления: {cars.Count}");
 // Console.WriteLine();
 
-// Console.WriteLine($"Цвет БМВ до: {bmw.Color}");
+// int powerfulCount = 0;
+// foreach (Car car in cars) {
+//     if (car.EngineVolume > 2.0) {
+//         powerfulCount++;
+//     }
+// }
+// Console.WriteLine($"Машин с объёмом двигателя больше 2.0 л: {powerfulCount}");
+// Console.WriteLine();
 
+// Console.WriteLine($"Цвет BMW до: {cars[0].Color}");
 // bmw.NewColor("Белый");
-// Console.WriteLine($"Цвет БМВ после: {bmw.Color}");
-
-// Console.WriteLine($"Пробег БМВ до: {bmw.Mileage}");
-
-// bmw.AddMileage(50);
-
-// Console.WriteLine($"Пробег БМВ после: {bmw.Mileage}");
-
-
-Car gazelle = new Car("ГАЗ", "Газель", 2.8, 2019, "Белый", 1000);
-Car kamaz   = new Car("КАМАЗ", "5490", 12.0, 2021, "Синий", -500);
-
-Console.WriteLine(gazelle.GetInfo());
-Console.WriteLine();
-Console.WriteLine(kamaz.GetInfo());
-Console.WriteLine();
-
-gazelle.AddMileage(250);
-gazelle.AddMileage(-100);
-
-Console.WriteLine();
-Console.WriteLine(gazelle.GetInfo());
-Console.WriteLine($"Пробег КАМАЗа: {kamaz.Mileage}");
-
-//gazelle.Mileage = 999; 
+// Console.WriteLine($"Цвет BMW после (через переменную): {bmw.Color}");
+// Console.WriteLine($"Цвет BMW после (через список): {cars[0].Color}");
